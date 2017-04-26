@@ -245,51 +245,7 @@ function processBeforeSend(text, sendCallback) {
 	}
 	var command = text.substr(1, text.indexOf(" ")-1);
 	 
-	 if(command == "translate") {
-	    var result = text.split('/translate ');
-		var firstPart = "";
-		var lastPart = "";
-		if(result.length > 1) {
-			firstPart = result[0];
-			lastPart = result[1];
-		} else {
-			lastPart = result[0];
-		}
-		var lang = lastPart.substr(0, lastPart.indexOf(' '));
-		var wordToTranslate = lastPart.substr(lastPart.indexOf(' ')+1);
-		
-		if(lang=="mc") {
-			var morse = { a: ".-", b:"-...", c:"-.-.", d:"-..", e:".", f:"..-.",
-	                g:"--.", h:"....", i:"..", j:".---", k:"-.-", l:".-..",
-	                m:"--", n:"-.", o:"---", p:".--.", q:"--.-", r:".-.", s:"...", t:"-",
-	                u:"..-", v:"...-", w:".--", x:"-..-", y:"-.--", z:"--..", 0:"-----",
-	                1:".----", 2:"..---", 3:"...--", 4:"....-", 5:".....", 6:"-....",
-	                7:"--...", 8:"---..", 9:"----."};			
-	        wordToTranslate = wordToTranslate.toLowerCase();
-	        var arr = wordToTranslate.split("");
-	        for(var i=0; i<arr.length; i++) {
-	        	arr[i] = morse[arr[i]];	        	
-	        }
-	        sendCallback(arr.join(" "));			
-	                	
-	    } else {		
-			$.ajax({  
-				url: 'https://translation.googleapis.com/language/translate/v2',  
-				dataType: 'jsonp',
-				data: { 
-						key: "AIzaSyCPcpxqYCIfq5mFR0zFF-IRoMeOMqXH-g4",
-						q : wordToTranslate,  // text to translate							
-						source: "en",
-						target: lang},
-				success: function(result) {
-					sendCallback(result.data.translations[0].translatedText);
-				},  
-				error: function(XMLHttpRequest, errorMsg, errorThrown) {
-					alert("error translating, no message sent: " + errorMsg);
-				}  
-			});
-		}
-	 } else if(command == "wiki") {
+    if(command == "wiki") {
 		    var result = text.split('/wiki ');
 			var firstPart = "";
 			var lastPart = "";
