@@ -2,10 +2,9 @@ security:
   oauth2:
     client:
       clientId: 975505445100-311qj0v8pa2csvb825gflmqrm3qsv8aq.apps.googleusercontent.com
-      clientSecret: ${oauth-key}
-      accessTokenUri: https://www.googleapis.com/oauth2/v3/token
-      userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
-      authenticationScheme: query
+      clientSecret: ${oAuthKey}
+      accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
       clientAuthenticationScheme: form
       scope:
         - openid
@@ -14,3 +13,7 @@ security:
     resource:
       userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
       preferTokenInfo: true
+server:
+  port: 80
+  session:
+    timeout: 0

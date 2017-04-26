@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello WebSocket</title>
+    <title>lt</title>
+    <link rel="icon" href="favicon.png?v=2" />
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
+    <link href="/webjars/emojify.js/basic/emojify.min.css" rel="stylesheet" />
     <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/jquery-ui/jquery-ui.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-    <script src="/app.js"></script>
-</head>
-<body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
-    enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
-<div id="main-content" class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="connect">WebSocket connection:</label>
-                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
-                    </button>
+    <script src="/webjars/emojify.js/emojify.min.js"></script>    
+    <script src="lt.js"></script>
+    </head>
+	<body onload="disconnect(false)">
+           <div class="header">
+            <h3><span class="lt-logo-img"></span><span class="lt-logo-text">ametime</span></h3>
+            <!-- <div id="login">
+	            <div>
+    	            <input type="text" id="from" placeholder="Choose a nickname"/>
+            	</div>     
+            	<div>       
+                	<button id="connect" onclick="connect();">Connect</button>
+                	<button id="disconnect" disabled="disabled" onclick="disconnect(true);">Disconnect</button>
                 </div>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="name">What is your name?</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
-                </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table id="conversation" class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Greetings</th>
-                </tr>
-                </thead>
-                <tbody id="greetings">
-                </tbody>
-            </table>
-        </div>
-    </div>
-    </form>
-</div>
-</body>
+             </div> -->
+           </div>
+           <br/>
+           <div id="container">
+           <div id="textDiv">
+          		<input type="text" id="textEntry" placeholder="Write a message..."/>
+            <button id="sendMessage" onclick="sendMessage();">Send</button>
+           </div>     
+           <br/>      
+           	<div id="userList">
+           	</div>
+            <div id="conversationDiv">	              
+               	<div id="response"></div>
+            </div>
+            <br/>
+            <div id="clearDiv"><button id="clear" onclick="clearHistory();">Clear</button></div>
+           </div>
+     </body>
 </html>
