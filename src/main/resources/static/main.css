@@ -55,10 +55,9 @@ h3 {
 }
 .lt-logo-text {
 	/*color: #4949FC;*/
-	margin-left: 32px;
-	margin-top: 8px;
+	margin-top: -20px;
 	float: left;
-    font-family: "Roboto Slab";
+    font-family: "Baloo";
     font-weight: 400;
     font-size: 4em;
     background: linear-gradient(330deg, #1B73F2 0%, #3885F3 25%, #5F9DF6 50%, #88B6F7 75%, #B0CCF5 100%);
