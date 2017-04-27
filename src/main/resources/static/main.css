@@ -62,11 +62,11 @@ h3 {
     margin: 0 auto;
     font-family: "Roboto Slab";
     font-weight: 400;
-    font-size: 6em;
-    background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+    font-size: 5em;
+    background: linear-gradient(330deg, #1B73F2 0%, #3885F3 25%, #5F9DF6 50%, #88B6F7 75%, #B0CCF5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 200px;
+    line-height: 150px;
 }
 
 #container {
