@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
@@ -25,11 +28,10 @@ public class StompDisconnectEvent implements ApplicationListener<SessionDisconne
 	@Override
     public void onApplicationEvent(SessionDisconnectEvent event) {
         StompHeaderAccessor sha = StompHeaderAccessor.wrap(event.getMessage());
- 
-        User user = currentInfo.findUserBySessionId(sha.getSessionId());
+        User user = currentInfo.findUserBySession(sha.getSessionId());
         if(user != null) {
-        	System.out.println("disconnecting: " + user.getCid() + ":" + user.getSessionId() + ":" + user.getNick());
-        	currentInfo.removeUser(sha.getSessionId());
+        	System.out.println("disconnecting: " + user.getName() + ":" + sha.getSessionId());
+        	currentInfo.removeUser(user.getEmail(), sha.getSessionId());
             template.convertAndSend("/topic/state",  new StateInfo(new ConnectionInfo(new VersionInfo(), currentInfo), "connected", user));
         } else {
         	System.out.println("nobody to disconnect: " + sha.getSessionId());

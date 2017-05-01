@@ -4,11 +4,11 @@ import java.util.Collection;
 
 public class ConnectionInfo {
 	private VersionInfo versionInfo;
-	private Collection<User> users;
+	private Collection<MiniUser> users;
 	
 	public ConnectionInfo(VersionInfo versionInfo, CurrentInfo currentInfo) {
 		this.versionInfo = versionInfo;
-		this.users = currentInfo.getUsers();
+		this.users = currentInfo.getMiniUsers();
 	}
 	
 	public VersionInfo getVersionInfo() {
@@ -17,10 +17,10 @@ public class ConnectionInfo {
 	public void setVersionInfo(VersionInfo versionInfo) {
 		this.versionInfo = versionInfo;
 	}
-	public Collection<User> getUsers() {
+	public Collection<MiniUser> getUsers() {
 		return users;
 	}
-	public void setUsers(Collection<User> users) {
+	public void setUsers(Collection<MiniUser> users) {
 		this.users = users;
 	}
 	

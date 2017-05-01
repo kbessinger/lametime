@@ -1,0 +1,39 @@
+html, body
+{
+    height: 100%;
+}
+
+[data-reactroot]
+        {height: 100% !important; }
+
+.container-fluid {
+    height: 80%;
+    overflow-y: hidden; /* don't show content that exceeds my height */
+}
+
+.fill {
+    height: 100%;
+}
+
+.fill-80 {
+    height: 80%
+}
+
+.lametime-main {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.lametime-userlist {
+    overflow-y: auto;
+    height: 100%;
+}
+.lametime-conversation {
+    overflow-y: auto;
+    height: 100%;
+}
+
+
+.lametime-user-img {
+    margin-right: 8px;
+}

@@ -1,21 +1,25 @@
 package com.kjbessinger.lametime.model;
 
+import java.util.UUID;
+
 public class OutputMessage {
-	private User user;
+	private String id;
+	private MiniUser user;
 	private String text;
 	private String time;
 	
-	public OutputMessage(User user, String text, String time) {
+	public OutputMessage(MiniUser user, String text, String time) {
+		this.id = UUID.randomUUID().toString();
 		this.user = user;
 		this.text = text;
 		this.time = time;
 	}
 	
-	public User getUser() {
+	public MiniUser getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(MiniUser user) {
 		this.user = user;
 	}
 
@@ -31,6 +35,12 @@ public class OutputMessage {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }

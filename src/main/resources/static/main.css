@@ -106,6 +106,7 @@ h3 {
     border-radius: 5px;
 }
 
+/*
 button {
   display: inline-block;
   vertical-align: top;
@@ -177,6 +178,7 @@ button:disabled {
     background-image: none;
     cursor: default;
 }
+*/
 
 input[type=text] {
 	border-radius: 5px;

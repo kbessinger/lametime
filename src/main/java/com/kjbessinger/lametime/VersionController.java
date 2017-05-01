@@ -24,7 +24,7 @@ public class VersionController {
    		template.convertAndSend("/topic/version", vi);
    		*/
 		for(User user : currentInfo.getUsers()) {
-			System.out.println("current users: " + user.getSessionId() + ":" + user.getCid() + ":" +  user.getNick());	
+			System.out.println("current users: " + user.getEmail() + ":" + user.getName());
 		}
 		
     }
