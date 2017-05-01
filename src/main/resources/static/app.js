@@ -36,6 +36,9 @@ class App extends React.Component {
     handleMessage(msg) {
         var chatMessage = JSON.parse(msg.body);
         var msgs = this.state.messages.slice();
+        //TODO: calculate timezone offset from passed in server time.
+        var d = new Date();
+        chatMessage.time = d.toLocaleString();
         msgs.push(chatMessage);
         this.setState({
             stateInfo: this.state.stateInfo,
@@ -196,11 +199,8 @@ class LametimeIncomingMessage extends React.Component {
     }
 
     render() {
-        //do this for now?
-        var d = new Date();
-
         return (
-            <p className='message'><span className='from'>{this.props.message.user.name}: </span>{this.props.message.text + ' (' + d.toLocaleString()/*this.props.message.time*/ + ')'}</p>
+            <p className='message'><span className='from'>{this.props.message.user.name}: </span>{this.props.message.text + ' (' + this.props.message.time + ')'}</p>
         )
     }
 }
